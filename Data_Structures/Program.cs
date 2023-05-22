@@ -80,6 +80,12 @@ namespace Data_Structures
             tail.Next = null;
         }
 
+        public void deleteAfter(Node<T> node)
+        {
+            Node<T> tempNode = node.Next;
+            node.Next = tempNode.Next;
+        }
+
         public void printLikedList()
         {
             StringBuilder myLinkedList = new StringBuilder();
@@ -104,16 +110,20 @@ namespace Data_Structures
             Node<int> mySecondNode = new Node<int>(40);
             Node<int> myThirdNode = new Node<int>(30);
             Node<int> myFourthNode = new Node<int>(20);
+            Node<int> myFifthNode = new Node<int>(50);
             
             MyLinkedList<int> myLinkedList = new MyLinkedList<int>();
             myLinkedList.addLast(myFirstNode);
             myLinkedList.addLast(mySecondNode);
             myLinkedList.addLast(myThirdNode);
+            myLinkedList.addLast(myFifthNode);
 
             myLinkedList.addAfter(mySecondNode, myFourthNode);
 
             myLinkedList.deleteFirst();
             myLinkedList.deleteLast();
+
+            myLinkedList.deleteAfter(mySecondNode);
 
             myLinkedList.printLikedList();
 
