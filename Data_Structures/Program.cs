@@ -56,6 +56,13 @@ namespace Data_Structures
             }
         }
 
+        public void addAfter(Node<T> myNode, Node<T> newNode)
+        {
+            Node<T> tempNode = myNode;
+            newNode.Next = myNode.Next;
+            tempNode.Next = newNode;
+        }
+
         public void printLikedList()
         {
             StringBuilder myLinkedList = new StringBuilder();
@@ -79,11 +86,14 @@ namespace Data_Structures
             Node<int> myFirstNode = new Node<int>(70);
             Node<int> mySecondNode = new Node<int>(40);
             Node<int> myThirdNode = new Node<int>(30);
+            Node<int> myFourthNode = new Node<int>(20);
             
             MyLinkedList<int> myLinkedList = new MyLinkedList<int>();
             myLinkedList.addLast(myFirstNode);
             myLinkedList.addLast(mySecondNode);
             myLinkedList.addLast(myThirdNode);
+
+            myLinkedList.addAfter(mySecondNode, myFourthNode);
 
             myLinkedList.printLikedList();
 
