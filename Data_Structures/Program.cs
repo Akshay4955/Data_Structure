@@ -63,6 +63,23 @@ namespace Data_Structures
             tempNode.Next = newNode;
         }
 
+        public void deleteFirst()
+        {
+            head = head.Next;
+        }
+
+        public void deleteLast()
+        {
+            Node<T> tempNode = head;
+            while (!tempNode.Next.Equals(tail)) 
+            {
+                tempNode = tempNode.Next;
+            }
+
+            tail = tempNode;
+            tail.Next = null;
+        }
+
         public void printLikedList()
         {
             StringBuilder myLinkedList = new StringBuilder();
@@ -94,6 +111,9 @@ namespace Data_Structures
             myLinkedList.addLast(myThirdNode);
 
             myLinkedList.addAfter(mySecondNode, myFourthNode);
+
+            myLinkedList.deleteFirst();
+            myLinkedList.deleteLast();
 
             myLinkedList.printLikedList();
 
