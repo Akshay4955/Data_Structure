@@ -104,19 +104,38 @@ namespace Data_Structures
 
     public class Stack
     {
-        MyLinkedList<int> myLinkedList = new MyLinkedList<int>();
+        MyLinkedList<int> myStack = new MyLinkedList<int>();
         public void push(Node<int> node)
         {
-            myLinkedList.addFirst(node);
+            myStack.addFirst(node);
             Console.WriteLine("Linked list after push operation");
-            myLinkedList.printLikedList();
+            myStack.printLikedList();
         }
 
         public void pop()
         {
-            myLinkedList.deleteFirst();
+            myStack.deleteFirst();
             Console.WriteLine("Linked list after pop operation");
-            myLinkedList.printLikedList();
+            myStack.printLikedList();
+        }
+    }
+
+    public class Queue
+    {
+        MyLinkedList<int> myQueue = new MyLinkedList<int>();
+
+        public void enqueue(Node<int> node)
+        {
+            myQueue.addFirst(node);
+            Console.WriteLine("My Queue after enqueue");
+            myQueue.printLikedList();
+        }
+
+        public void dequeue()
+        {
+            myQueue.deleteLast();
+            Console.WriteLine("My Queue after dequeue");
+            myQueue.printLikedList();
         }
     }
     internal class Program
@@ -150,6 +169,13 @@ namespace Data_Structures
             stack.push(myFifthNode);
             
             stack.pop();
+
+            Queue queue = new Queue();
+            queue.enqueue(myThirdNode);
+            queue.enqueue(mySecondNode);
+            queue.enqueue(myFirstNode);
+
+            queue.dequeue();
         }
     }
 }
