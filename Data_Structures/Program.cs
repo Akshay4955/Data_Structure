@@ -101,6 +101,24 @@ namespace Data_Structures
             Console.WriteLine(myLinkedList);
         }
     }
+
+    public class Stack
+    {
+        MyLinkedList<int> myLinkedList = new MyLinkedList<int>();
+        public void push(Node<int> node)
+        {
+            myLinkedList.addFirst(node);
+            Console.WriteLine("Linked list after push operation");
+            myLinkedList.printLikedList();
+        }
+
+        public void pop()
+        {
+            myLinkedList.deleteFirst();
+            Console.WriteLine("Linked list after pop operation");
+            myLinkedList.printLikedList();
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -116,7 +134,6 @@ namespace Data_Structures
             myLinkedList.addLast(myFirstNode);
             myLinkedList.addLast(mySecondNode);
             myLinkedList.addLast(myThirdNode);
-            myLinkedList.addLast(myFifthNode);
 
             myLinkedList.addAfter(mySecondNode, myFourthNode);
 
@@ -124,9 +141,15 @@ namespace Data_Structures
             myLinkedList.deleteLast();
 
             myLinkedList.deleteAfter(mySecondNode);
-
+       
             myLinkedList.printLikedList();
-
+            
+            Stack stack = new Stack();
+            stack.push(myThirdNode);
+            stack.push(myFourthNode);
+            stack.push(myFifthNode);
+            
+            stack.pop();
         }
     }
 }
